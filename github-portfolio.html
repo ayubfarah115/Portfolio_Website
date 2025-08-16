@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colorful GitHub Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes shimmer { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
+    .shimmer { background-image: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.35), rgba(255,255,255,0.08)); background-size: 200% 100%; animation: shimmer 1.6s infinite linear; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .glass { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-white selection:bg-white/20">
+  <h1 class="text-3xl font-bold p-6">Colorful GitHub Portfolio</h1>
+  <p class="p-6">Open this file in your browser. It will fetch GitHub profile and repo data for the user <code>octocat</code>. You can change the username in the script.</p>
+  <script>
+    console.log("Portfolio script would run here...");
+  </script>
+</body>
+</html>
