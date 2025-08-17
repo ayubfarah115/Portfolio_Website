@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><!-- {{FULL_NAME}} --> Narender Singh Bisht — Portfolio</title>
+
+  <!-- HOW TO CUSTOMIZE:
+    1) Replace all {{...}} tokens with your real details.
+    2) Swap the avatar and cover URLs below with your own images (local files work too).
+    3) Edit the “Resume”, “Selected Works”, and “Contact” sections as needed.
+  -->
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #e9f7f1;
+      --bg-2: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --brand: #19c37d;
+      --brand-2: #10b981;
+      --ring: rgba(25, 195, 125, .25);
+      --card: #ffffff;
+      --gradient-1: #8be1c0;
+      --gradient-2: #6ac4ff;
+    }
+    [data-theme="dark"]{
+      --bg: #0b1220;
+      --bg-2: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --brand: #22d3ee;
+      --brand-2: #38bdf8;
+      --ring: rgba(56, 189, 248, .25);
+      --card: #0b1120;
+      --gradient-1: #1e293b;
+      --gradient-2: #0ea5e9;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 15% 10%, var(--gradient-2) 0%, transparent 40%),
+                  radial-gradient(1200px 600px at 85% 90%, var(--gradient-1) 0%, transparent 45%),
+                  var(--bg);
+      background-attachment: fixed;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1200px; margin: 24px auto; padding: 0 16px; display: grid; grid-template-columns: 240px 1fr; gap: 24px;
+    }
+    @media (max-width: 960px){ .container{ grid-template-columns: 1fr; } .sidebar{ position: static; height: auto; } }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky; top: 20px; align-self: start; background: var(--bg-2); border-radius: 16px; padding: 16px; box-shadow: 0 8px 32px rgba(2,8,23,.08), inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    .brand {
+      height: 64px; width: 64px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; color: white; background: linear-gradient(135deg, #1e293b, #0ea5e9);
+      margin: 4px auto 12px;
+    }
+    .nav {
+      display: grid; gap: 10px; margin-top: 8px;
+    }
+    .nav a { display: grid; grid-template-columns: 36px 1fr; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; color: var(--text); border: 1px solid transparent; }
+    .nav a i { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; background: var(--card); box-shadow: inset 0 0 0 1px rgba(15,23,42,.06); }
+    .nav a:hover { border-color: var(--ring); box-shadow: 0 0 0 3px var(--ring); }
+
+    .toggle {
+      display: grid; place-items: center; margin-top: 10px; padding: 10px; border-radius: 12px; border: 1px solid rgba(148,163,184,.25); cursor: pointer; color: var(--muted);
+    }
+
+    /* Main */
+    .card {
+      background: var(--bg-2); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(2,8,23,.10), inset 0 0 0 1px rgba(255,255,255,.05);
+    }
+    .header {
+      position: relative; overflow: hidden;
+    }
+    .cover {
+      height: 240px; background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      filter: saturate(1.1);
+    }
+    .avatar {
+      position: absolute; left: 24px; bottom: -48px; width: 120px; height: 120px; border-radius: 50%; border: 6px solid var(--bg-2); overflow: hidden; box-shadow: 0 12px 28px rgba(2,8,23,.2);
+    }
+
+    .profile {
+      padding: 64px 24px 24px 24px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end;
+    }
+    .title { font-size: clamp(28px, 3.2vw, 40px); font-weight: 700; letter-spacing: .2px; }
+    .subtitle { color: var(--brand-2); font-weight: 600; margin-top: 4px; }
+
+    .socials { display: flex; gap: 12px; margin-top: 12px; }
+    .icon-btn { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; background: var(--card); color: var(--text); border: 1px solid rgba(148,163,184,.25); }
+    .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(2,8,23,.08); }
+
+    .cta { display: flex; gap: 12px; justify-content: end; flex-wrap: wrap; }
+    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(148,163,184,.25); font-weight: 600; cursor: pointer; background: var(--card); }
+    .btn.primary { background: var(--brand); color: white; border-color: transparent; }
+    .btn.primary:hover { background: var(--brand-2); }
+    .btn:hover { box-shadow: 0 8px 20px rgba(2,8,23,.08); }
+
+    .grid {
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; padding: 0 24px 24px 24px;
+    }
+    @media (max-width: 1100px){ .grid{ grid-template-columns: 1fr; } }
+
+    .panel { background: var(--bg-2); border-radius: 16px; padding: 20px; border: 1px solid rgba(148,163,184,.2); }
+    .panel h3 { margin: 0 0 14px 0; }
+    .about p { color: var(--muted); line-height: 1.8; }
+    .kv { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; margin-top: 14px; }
+    .kv b { color: var(--text); }
+
+    section { scroll-margin-top: 20px; }
+    .section-title { font-size: 24px; font-weight: 700; margin: 24px 0 12px; }
+    .timeline { display: grid; gap: 16px; }
+    .item { background: var(--bg-2); border: 1px solid rgba(148,163,184,.2); padding: 16px; border-radius: 14px; }
+    .item h4 { margin: 0 0 6px; }
+    .item small { color: var(--muted); }
+
+    footer { text-align: center; color: var(--muted); padding: 30px 0 40px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand"><!-- {{INITIAL}} -->N</div>
+      <nav class="nav">
+        <a href="#about"><i class="fa-solid fa-user"></i> <span>About</span></a>
+        <a href="#resume"><i class="fa-solid fa-file-lines"></i> <span>Resume</span></a>
+        <a href="#works"><i class="fa-solid fa-pen-ruler"></i> <span>Works</span></a>
+        <a href="#contact"><i class="fa-solid fa-phone"></i> <span>Contact</span></a>
+      </nav>
+      <div class="toggle" id="themeToggle" title="Toggle theme">
+        <i class="fa-regular fa-moon"></i>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main>
+      <!-- Profile Card -->
+      <div id="about" class="card">
+        <header class="header">
+          <div class="cover" role="img" aria-label="Lake and mountains cover image"></div>
+          <div class="avatar">
+            <!-- Replace with your own avatar file path or URL -->
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=512&auto=format&fit=crop" alt="Profile"/>
+          </div>
+        </header>
+        <div class="profile">
+          <div>
+            <div class="title"><!-- {{FULL_NAME}} -->Narender Singh Bisht</div>
+            <div class="subtitle"><!-- {{ROLE}} -->Student · Full Stack Developer</div>
+            <div class="socials">
+              <a class="icon-btn" href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="icon-btn" href="#" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a class="icon-btn" href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a class="icon-btn" href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a class="icon-btn" href="mailto:<!-- {{EMAIL}} -->narendersinghbisht382@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="cta">
+            <a class="btn" href="#contact">Contact Me</a>
+            <a class="btn primary" href="#" download>Download CV</a>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="panel about">
+            <h3>About Me</h3>
+            <p><b><!-- {{INTRO_NAME}} -->Hello! I'm Narender Singh Bisht</b>, Full Stack developer from <!-- {{CITY_COUNTRY}} -->Delhi, India. I am currently pursuing Engineering in Electrical and Electronics from Maharaja Agrasen Institute of Technology. I love website design and building and customization.</p>
+            <div class="kv">
+              <div><b>Age:</b> <!-- {{AGE}} -->21</div>
+              <div><b>Birthday:</b> <!-- {{BIRTHDAY}} -->22 April 2001</div>
+              <div><b>Hometown:</b> <!-- {{HOMETOWN}} -->Pithoragarh, Uttarakhand</div>
+              <div><b>Residence:</b> <!-- {{RESIDENCE}} -->Delhi, India</div>
+              <div style="grid-column: 1 / -1;"><b>Email:</b> <!-- {{EMAIL}} -->narendersinghbisht382@gmail.com</div>
+            </div>
+            <h3 class="section-title">Hobbies</h3>
+            <p><!-- {{HOBBIES}} -->Digital art, fitness, hiking, reading about systems design, and tinkering with UI micro‑interactions.</p>
+          </div>
+
+          <div class="panel">
+            <h3>Quick Stats</h3>
+            <div class="item">
+              <h4>Tech Stack</h4>
+              <small><!-- {{STACK}} -->JavaScript, TypeScript, React, Node.js, Express, MongoDB · Tailwind, Sass · Git/GitHub</small>
+            </div>
+            <div class="item">
+              <h4>Available for</h4>
+              <small><!-- {{AVAIL}} -->Internships · Freelance · Collaboration</small>
+            </div>
+            <div class="item">
+              <h4>Languages</h4>
+              <small><!-- {{LANGS}} -->English · Hindi</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resume Section -->
+      <section id="resume">
+        <h2 class="section-title">Resume</h2>
+        <div class="timeline">
+          <div class="item">
+            <h4><!-- {{EDU}} -->Maharaja Agrasen Institute of Technology — B.Tech EEE</h4>
+            <small><!-- {{EDU_YEARS}} -->2020 – Present</small>
+            <p><!-- {{EDU_NOTES}} -->Coursework: Data Structures, Web Development, Control Systems. Activities: Coding club, design society.</p>
+          </div>
+          <div class="item">
+            <h4>Full‑Stack Projects</h4>
+            <small>2022 – Present</small>
+            <p>Built responsive web apps using React and Node.js, integrated REST APIs, implemented authentication, and deployed on Netlify/Vercel.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Works Section -->
+      <section id="works">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="grid" style="padding:0; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+          <a class="item" href="#" target="_blank">
+            <h4>Portfolio Website</h4>
+            <small>Personal branding, dark mode, animations</small>
+          </a>
+          <a class="item" href="#" target="_blank">
+            <h4>Task Manager App</h4>
+            <small>React + Express + MongoDB</small>
+          </a>
+          <a class="item" href="#" target="_blank">
+            <h4>UI Components Library</h4>
+            <small>Reusable React components</small>
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="item">
+          <p>Have an opportunity or just want to say hello? Reach me at <a href="mailto:<!-- {{EMAIL}} -->narendersinghbisht382@gmail.com"><b><!-- {{EMAIL}} -->narendersinghbisht382@gmail.com</b></a> or DM me on LinkedIn.</p>
+          <p>
+            <a class="btn primary" href="mailto:<!-- {{EMAIL}} -->narendersinghbisht382@gmail.com"><i class="fa-regular fa-envelope"></i> Send Email</a>
+            <a class="btn" href="#about"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+          </p>
+        </div>
+      </section>
+
+      <footer>© <span id="year"></span> <!-- {{FULL_NAME}} -->Narender Singh Bisht. All rights reserved.</footer>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if(id.length > 1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      if(next === 'light') root.removeAttribute('data-theme'); else root.setAttribute('data-theme','dark');
+      localStorage.setItem('theme', next);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
