@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayubbashir Farah — CV</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f6f9fc;
+      --bg-2: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --brand: #0ea5e9;
+      --brand-2: #0284c7;
+      --ring: rgba(56, 189, 248, .25);
+      --card: #ffffff;
+      --gradient-1: #c6e7ff;
+      --gradient-2: #8bd3ff;
+    }
+    [data-theme="dark"]{
+      --bg: #0b1220;
+      --bg-2: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --brand: #22d3ee;
+      --brand-2: #38bdf8;
+      --ring: rgba(56, 189, 248, .25);
+      --card: #0b1120;
+      --gradient-1: #1e293b;
+      --gradient-2: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 15% 10%, var(--gradient-2) 0%, transparent 40%),
+                  radial-gradient(1200px 600px at 85% 90%, var(--gradient-1) 0%, transparent 45%),
+                  var(--bg);
+      background-attachment: fixed;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1000px; margin: 24px auto; padding: 0 16px; display: grid; grid-template-columns: 280px 1fr; gap: 24px;
+    }
+    @media (max-width: 960px){ .container{ grid-template-columns: 1fr; } .sidebar{ position: static; height: auto; } }
+
+    .sidebar {
+      position: sticky; top: 20px; align-self: start; background: var(--bg-2); border-radius: 16px; padding: 16px; box-shadow: 0 8px 32px rgba(2,8,23,.08), inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    .brand {
+      height: 64px; width: 64px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; color: white; background: linear-gradient(135deg, #1e293b, #0ea5e9);
+      margin: 4px auto 12px;
+    }
+    .nav { display: grid; gap: 10px; margin-top: 8px; }
+    .nav a { display: grid; grid-template-columns: 36px 1fr; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; color: var(--text); border: 1px solid transparent; }
+    .nav a i { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; background: var(--card); box-shadow: inset 0 0 0 1px rgba(15,23,42,.06); }
+    .nav a:hover { border-color: var(--ring); box-shadow: 0 0 0 3px var(--ring); }
+    .toggle { display: grid; place-items: center; margin-top: 10px; padding: 10px; border-radius: 12px; border: 1px solid rgba(148,163,184,.25); cursor: pointer; color: var(--muted); }
+
+    .card { background: var(--bg-2); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(2,8,23,.10), inset 0 0 0 1px rgba(255,255,255,.05); }
+    .header { position: relative; overflow: hidden; }
+    .cover {
+      height: 160px; background: linear-gradient(90deg,#0ea5e9,#22d3ee);
+    }
+    .avatar {
+      position: absolute; left: 24px; bottom: -40px; width: 96px; height: 96px; border-radius: 16px; border: 6px solid var(--bg-2); overflow: hidden; box-shadow: 0 12px 28px rgba(2,8,23,.2);
+      display: grid; place-items: center; font-weight: 800; color: white; background: #0ea5e9;
+    }
+
+    .profile { padding: 56px 24px 24px 24px; display: grid; grid-template-columns: 1fr; gap: 8px; }
+    .title { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: .2px; }
+    .subtitle { color: var(--brand-2); font-weight: 600; margin-top: 2px; }
+    .contact { color: var(--muted); margin-top: 8px; display: grid; gap: 4px; }
+    .socials { display: flex; gap: 12px; margin-top: 12px; }
+    .icon-btn { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; background: var(--card); color: var(--text); border: 1px solid rgba(148,163,184,.25); }
+    .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(2,8,23,.08); }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(148,163,184,.25); font-weight: 600; cursor: pointer; background: var(--card); }
+    .btn.primary { background: var(--brand); color: white; border-color: transparent; }
+    .btn.primary:hover { background: var(--brand-2); }
+    .btn:hover { box-shadow: 0 8px 20px rgba(2,8,23,.08); }
+
+    section { scroll-margin-top: 20px; }
+    .section-title { font-size: 22px; font-weight: 700; margin: 24px 0 12px; }
+    .panel { background: var(--bg-2); border-radius: 16px; padding: 20px; border: 1px solid rgba(148,163,184,.2); }
+    .about p { color: var(--muted); line-height: 1.8; }
+    .timeline { display: grid; gap: 16px; }
+    .item { background: var(--bg-2); border: 1px solid rgba(148,163,184,.2); padding: 16px; border-radius: 14px; }
+    .item h4 { margin: 0 0 6px; }
+    .item small { color: var(--muted); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: var(--card); border: 1px solid rgba(148,163,184,.25); font-size: 13px; }
+
+    footer { text-align: center; color: var(--muted); padding: 30px 0 40px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="brand">A</div>
+      <nav class="nav">
+        <a href="#about"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+        <a href="#experience"><i class="fa-solid fa-briefcase"></i> <span>Experience</span></a>
+        <a href="#education"><i class="fa-solid fa-graduation-cap"></i> <span>Education</span></a>
+        <a href="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> <span>Skills</span></a>
+        <a href="#contact"><i class="fa-solid fa-phone"></i> <span>Contact</span></a>
+      </nav>
+      <div class="toggle" id="themeToggle" title="Toggle theme">
+        <i class="fa-regular fa-moon"></i>
+      </div>
+    </aside>
+
+    <main>
+      <div id="about" class="card">
+        <header class="header">
+          <div class="cover" aria-label="Brand gradient cover"></div>
+          <div class="avatar">AF</div>
+        </header>
+        <div class="profile">
+          <div class="title">Ayubbashir Farah</div>
+          <div class="subtitle">Mathematics & Economics Graduate · Quality Assurance / Customer Service</div>
+          <div class="contact">
+            <div><i class="fa-solid fa-phone"></i> 07539184248</div>
+            <div><i class="fa-regular fa-envelope"></i> <a href="mailto:ayubfarah115@outlook.com">ayubfarah115@outlook.com</a></div>
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="AF%20CV.pdf" download>Download CV (PDF)</a>
+          </div>
+        </div>
+
+        <section class="panel about">
+          <h2 class="section-title">Professional Summary</h2>
+          <p>
+            Mathematics and Economics graduate with a passion for data‑driven problem‑solving and a proven ability to thrive in fast‑paced customer service environments.
+            Currently serving as a Customer Service Advisor at Capita, specializing in TfL transport discount application processing.
+            Managed 70+ daily customer interactions while maintaining a 98% accuracy rate in application processing.
+            Combines strong analytical capability with excellent customer service skills developed at RAC, Lloyds Bank, and Webhelp UK.
+          </p>
+        </section>
+      </div>
+
+      <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+          <div class="item">
+            <h4>Capita — Quality Assurance</h4>
+            <small>Jan 2025 – Present</small>
+            <ul>
+              <li>Executed comprehensive testing protocols for transport discount applications, ensuring 100% compliance with business rules and regulatory requirements.</li>
+              <li>Developed and implemented quality control procedures for digital account management systems; reduced error rates via cross‑environment compatibility testing.</li>
+              <li>Maintained rigorous QA standards while processing 200+ daily applications; performed detailed verification checks and documented validation steps.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h4>Lloyds Bank — Advisor</h4>
+            <small>Dec 2023 – Mar 2024</small>
+            <ul>
+              <li>Produced comprehensive consultation documentation, analyzing interaction patterns and generating insights to enhance service delivery.</li>
+              <li>Identified complex cases requiring specialist input and coordinated seamless handovers while preserving client relationships.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h4>Webhelp UK — Customer Service Agent</h4>
+            <small>Sep 2023 – Dec 2023</small>
+            <ul>
+              <li>Resolved customer enquiries via phone, email, and chat in a remote environment with consistent empathy and effective problem solving.</li>
+              <li>Handled 50+ daily interactions while achieving ~15% faster resolution times through meticulous note‑taking and efficient system navigation.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+          <div class="item">
+            <h4>Aston University — BSc Mathematics with Economics</h4>
+            <small>Graduated Aug 2024</small>
+          </div>
+          <div class="item">
+            <h4>Cadbury College — A Levels</h4>
+            <small>Sociology, Product Design, Mathematics · Graduated Jun 2019</small>
+          </div>
+          <div class="item">
+            <h4>Heartlands Academy — GCSEs</h4>
+            <small>9 GCSEs A*–C including English and Mathematics · Graduated Jun 2017</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">Skills & Achievements</h2>
+        <div class="panel">
+          <h4>Technical & Tools</h4>
+          <div class="chips">
+            <span class="chip">SQL</span>
+            <span class="chip">RStudio</span>
+            <span class="chip">Excel</span>
+            <span class="chip">LaTeX</span>
+            <span class="chip">Dynamics</span>
+            <span class="chip">Cisco</span>
+            <span class="chip">1link</span>
+          </div>
+          <h4 style="margin-top:16px;">Certifications & Programs</h4>
+          <div class="chips">
+            <span class="chip">Cyber Security – Gov BootCamp</span>
+            <span class="chip">Forge Certificate</span>
+            <span class="chip">ACT Awareness Certificate</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="item panel">
+          <p>Feel free to get in touch:</p>
+          <p><i class="fa-solid fa-phone"></i> 07539184248</p>
+          <p><i class="fa-regular fa-envelope"></i> <a href="mailto:ayubfarah115@outlook.com">ayubfarah115@outlook.com</a></p>
+          <p class="cta">
+            <a class="btn primary" href="AF%20CV.pdf" download><i class="fa-regular fa-file-lines"></i> Download CV (PDF)</a>
+            <a class="btn" href="#about"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+          </p>
+        </div>
+      </section>
+
+      <footer>© <span id="year"></span> Ayubbashir Farah. All rights reserved.</footer>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if(id.length > 1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      if(next === 'light') root.removeAttribute('data-theme'); else root.setAttribute('data-theme','dark');
+      localStorage.setItem('theme', next);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
